@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE packagegui SYSTEM "../schema/packages.dtd">
+<?xml-stylesheet type="text/xsl" href="../xsl/package.xsl"?>
+<packagegui>
+	<copyright>
+<![CDATA[
+/*
+ * autopppoepwsetting.xml
+ *
+ * for cloakSense (derive from pfSense) and the pfSense (https://www.pfsense.org)
+ * Copyright (c) 2015-2020 Rubicon Communications, LLC (Netgate)
+ * All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+	]]>
+	</copyright>
+	<name>Autopppoepwsetting</name>
+	<title>Autopppoepw: setting</title>
+	<include_file>/usr/local/pkg/autopppoepw.inc</include_file>
+	<tabs>
+		<tab>
+			<text>username</text>
+			<url>/pkg.php?xml=autopppoepw.xml</url>
+		</tab>
+		<tab>
+			<text>setting</text>
+			<url>/pkg_edit.php?xml=autopppoepwsetting.xml&amp;id=0</url>
+			<active/>
+			</tab>
+	</tabs>
+	<fields>
+
+                              <field>
+                                           <name>edit PPPoE primary account</name>
+                                           <type>listtopic</type>
+                             </field>
+
+                             <field>
+                                           <fielddescr>Enable primary pppoe account update</fielddescr>
+                                           <fieldname>varupdateprimarypppoeuser</fieldname>
+                                           <description>
+                                                          <![CDATA[
+                                                          Select a primary pppoe user entry method.<br />
+                                                          <strong><span class="text-danger">Important:</span></strong> before using "Auto learn primary user password",
+                                                          you must connect working telco pppoe modem WAN to <strong> port 4</strong> to allow learning.
+                                                          System disable user password auto update from this form after Internet connected.
+                                                          For manual keyin, please ensure only one user enable as primary account. 
+                                                          ]]>
+                                           </description>
+                                           <type>select</type>
+                                           <required/>
+                                           <default_value>disabled</default_value>
+                                           <options>
+                                                          <option><name>Auto learn primary user password</name><value>auto</value></option>
+                                                          <option><name>Manual keyin primary user password</name><value>manual</value></option>
+                                                          <option><name>Disable update primary user from this form</name><value>disabled</value></option>
+                                           </options>
+                             </field>
+       </fields>
+	<custom_php_resync_config_command>
+		shell_exec('echo "pppoesetting php resync" >> /home/super/testlog1.log');
+		pppoepw_sync_package();
+	</custom_php_resync_config_command>
+
+</packagegui>

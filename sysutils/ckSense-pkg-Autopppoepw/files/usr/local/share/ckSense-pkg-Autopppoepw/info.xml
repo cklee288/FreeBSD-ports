@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<pfsensepkgs>
+	<package>
+		<name>Autopppoepw</name>
+		<descr><![CDATA[Track things you want to note for this system.]]></descr>
+		<pkginfolink/>
+		<version>0.1.2_1</version>
+		<configurationfile>autopppoepw.xml</configurationfile>
+	</package>
+</pfsensepkgs>
