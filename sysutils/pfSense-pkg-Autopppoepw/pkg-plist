@@ -1,0 +1,10 @@
+pkg/autopppoepw.xml
+pkg/autopppoepw.inc
+pkg/autopppoepwsetting.xml
+/home/super/main_autopppoe.sh
+/home/super/autopppoeprimaryuser_param.sh
+/home/super/radiusprimaryuser_param.sh
+/home/super/updatepppoeprimaryuser_param.sh
+/etc/inc/priv/autopppoepw.priv.inc
+%%DATADIR%%/info.xml
+@dir /etc/inc/priv
